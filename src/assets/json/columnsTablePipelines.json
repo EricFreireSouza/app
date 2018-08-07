@@ -1,6 +1,6 @@
 [
     {
-        "field": "pipeline_name", 
+        "field": "display_name", 
         "header": "Pipeline Name"
     },
     {

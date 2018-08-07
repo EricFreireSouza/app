@@ -7,18 +7,17 @@ import { MultiSelect } from 'primereact/multiselect';
 //import { Button } from 'primereact/button';
 import { InputText } from 'primereact/inputtext';
 
-import columnsTablePipelines from '../../assets/json/columnsTablePipelines.json';
-//import dataTablePipelines from '../../assets/json/dataTablePipelines.json';
+import columnsTableClasses from '../../assets/json/columnsTableClasses.json';
 
-const URL = 'http://devel2.linea.gov.br/~singulani/pipelines.json'
+const URL = 'http://devel2.linea.gov.br/~singulani/classes.json'
 
-export default class TablePipelines extends Component {
+export default class TableClasses extends Component {
     constructor() {
         super();
-        let columnsPipelines = columnsTablePipelines;
+        let columnsClasses = columnsTableClasses;
 
         this.state = {
-            colsPipelines: columnsPipelines,
+            colsClasses: columnsClasses,
             globalFilter: null,
             loading: false,
             first: 0,
@@ -28,19 +27,17 @@ export default class TablePipelines extends Component {
             itens: URL
         };
 
-        this.colOptionsPipelines = [];
+        this.colOptionsClasses = [];
 
-        for(let col of columnsPipelines) {
-            this.colOptionsPipelines.push({label: col.header, value: col});
+        for(let col of columnsClasses) {
+            this.colOptionsClasses.push({label: col.header, value: col});
         }
 
-        this.onColumnTogglePipelines = this.onColumnTogglePipelines.bind(this);
-
-        //this.onPage = this.onPage.bind(this);
+        this.onColumnToggleClasses = this.onColumnToggleClasses.bind(this);
     }
 
-    onColumnTogglePipelines(event) {
-        this.setState({colsPipelines: event.value});
+    onColumnToggleClasses(event) {
+        this.setState({colsClasses: event.value});
     }
 
     componentDidMount() {
@@ -59,11 +56,11 @@ export default class TablePipelines extends Component {
 
     render() {
         let header = <div style={{textAlign:'left'}}>
-                        <MultiSelect value={this.state.colsPipelines} options={this.colOptionsPipelines} onChange={this.onColumnTogglePipelines} />
+                        <MultiSelect value={this.state.colsClasses} options={this.colOptionsClasses} onChange={this.onColumnToggleClasses} />
                         <br /><InputText type="search" onInput={(e) => this.setState({globalFilter: e.target.value})} placeholder="Global Search" />
                     </div>;
 
-        let columnsPipelines = this.state.colsPipelines.map((col,i) => {
+        let columnsClasses = this.state.colsClasses.map((col,i) => {
             return <Column key={col.field} field={col.field} header={col.header} sortable={true} />;
         });
 
@@ -93,7 +90,7 @@ export default class TablePipelines extends Component {
                 globalFilter={this.state.globalFilter}
                 paginatorTemplate="RowsPerPageDropdown PageLinks FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink"
             >
-                {columnsPipelines}
+                {columnsClasses}
             </DataTable>
         );
     }
