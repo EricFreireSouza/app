@@ -8,9 +8,9 @@ import { MultiSelect } from 'primereact/multiselect';
 import { InputText } from 'primereact/inputtext';
 
 import columnsTableUserInterfaces from '../../assets/json/columnsTableUserInterfaces.json';
-import DADOS from '../../assets/json/dataUserInterfaces.json';
+import dataUserInterfaces from '../../assets/json/dataUserInterfaces.json';
 
-//const URL = 'http://localhost:3000/API/data'
+//const URL = 'http://devel2.linea.gov.br/~singulani/pipelines.json'
 
 export default class TablePipelines extends Component {
     constructor() {
@@ -25,7 +25,7 @@ export default class TablePipelines extends Component {
             rows: 5,
             totalRecords: 0,
             rowsPerPageOptions: [5,10,20],
-            data: DADOS
+            itens: dataUserInterfaces
         };
 
         this.colOptionsPipelines = [];
@@ -50,29 +50,31 @@ export default class TablePipelines extends Component {
         }).catch(() => { 
             console.log('Erro ao recuperar os dados'); 
         });
-
-        console.log('TESTANDO');
-        this.datasource = this.state.data;
-        this.setState({
-            totalRecords: this.datasource.length,           
-            data: this.datasource.slice(0, this.state.rows),
-            loading: false
-        });
     }*/
 
-    /*onPage(event) {
+    /*componentDidMount() {
+        console.log('TESTANDO');
+        this.datasource = this.state.itens;
+        this.setState({
+            totalRecords: this.datasource.length,           
+            itens: this.datasource.slice(0, this.state.rows),
+            loading: false
+        });
+    }
+
+    onPage(event) {
         this.setState({
             loading: true
         });
 
+        //imitate delay of a backend call
         setTimeout(() => {
             const startIndex = event.first;
             const endIndex = event.first + this.state.rows;
     
             this.setState({
-                first: startIndex,
-                //rowsPerPageOptions: this.state.data,
-                data: this.datasource.slice(startIndex, endIndex),
+                first: startIndex,  
+                itens: this.datasource.slice(startIndex, endIndex),
                 loading: false
             });
         }, 250);
@@ -94,7 +96,7 @@ export default class TablePipelines extends Component {
         return (
             <DataTable 
                 header={header} 
-                value={this.state.data} 
+                value={this.state.itens} 
                 resizableColumns={true} 
                 columnResizeMode="expand" 
                 reorderableColumns={true} 

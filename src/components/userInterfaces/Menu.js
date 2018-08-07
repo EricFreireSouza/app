@@ -11,6 +11,9 @@ const Menu = () => {
                 <Link to='/dashboard' activeClassName="active" className="nav-link disabled">Components</Link>
             </li>
             <li className="nav-item">
+                <Link to='/dashboard' activeClassName="active" className="nav-link">Classes</Link>
+            </li>
+            <li className="nav-item">
                 <Link to='/dashboard' activeClassName="active" className="nav-link disabled">Packages</Link>
             </li>
         </ul>
