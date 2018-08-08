@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+import { Router, Route, IndexRoute, browserHistory, Redirect } from 'react-router';
 
 import App from './containers/App';
 import UserInterfaces from './containers/UserInterfaces';
@@ -30,8 +30,9 @@ ReactDOM.render(
             <Route path='/sprints' component={Sprints} />                       
         </Route>
         <Route path='/Dashboard' component={Dashboard} />
-        <Route path='/' component={UserInterfaces}>
-            <Route path='/Pipelines' component={Pipelines} />
+        <Route component={UserInterfaces}>
+            <Redirect from="/UserInterfaces" to="/Pipelines" />
+            <Route path='/Pipelines' component={Pipelines}/>
             <Route path='/Components' component={Components} />
             <Route path='/Classes' component={Classes} />
             <Route path='/Packages' component={Packages} />

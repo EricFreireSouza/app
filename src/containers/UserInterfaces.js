@@ -1,4 +1,4 @@
-import React, { Component }from 'react';
+import React, { Component } from 'react';
 
 import Menu from '../components/userInterfaces/Menu';
 
@@ -9,14 +9,14 @@ class UserInterfaces extends Component {
         return (
             <div className="container-fluid">
                 <div className="row">
-                    <aside className="col-md-3 d-md-block bg-light sidebar">
+                    <aside className="col-md-2 d-md-block bg-light sidebar">
                         <h1 className="titUserIntefaces">User Interfaces</h1>
                         <div className="sidebar-sticky">
                             <Menu />
                         </div>
                     </aside>
 
-                    <section className="col-md-9 ml-sm-auto col-lg-9 px-1">
+                    <section className="col-md-10 ml-sm-auto col-lg-10 px-1">
                         {this.props.children}
                     </section>
                 </div>

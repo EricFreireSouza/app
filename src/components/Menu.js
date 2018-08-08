@@ -52,7 +52,7 @@ const Menu = () => {
                 <Link to='/sprints' activeClassName="active" className="nav-link">Sprints</Link>
             </li>
             <li className="nav-item">
-                <Link to='/userInterfaces' activeClassName="active" className="nav-link" target="_blank">User Interfaces</Link>
+                <Link to='/UserInterfaces' activeClassName="active" className="nav-link" target="_blank">User Interfaces</Link>
             </li>
         </ul>
     );
