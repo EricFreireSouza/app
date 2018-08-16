@@ -4,7 +4,7 @@ import Menu from '../components/userInterfaces/Menu';
 
 import '../assets/css/userInterfaces.css';
 
-class UserInterfaces extends Component {
+export default class UserInterfaces extends Component {
     render() {
         return (
             <div className="container-fluid">
@@ -24,5 +24,3 @@ class UserInterfaces extends Component {
         );
     }
 }
-
-export default UserInterfaces;

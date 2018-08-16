@@ -1,4 +1,4 @@
-import React, { Component }from 'react';
+import React, { Component } from 'react';
 
 import ReleaseFilter from '../components/ReleaseFilter';
 import TableDataInstalation from '../components/dashboard/TableDataInstalation';
@@ -11,7 +11,7 @@ import TableUtilities from '../components/dashboard/TableUtilities';
 
 import '../assets/css/dashboard.css';
 
-class Dashboard extends Component {
+export default class Dashboard extends Component {
     render() {
         return (
             <div className="container-fluid">
@@ -38,5 +38,3 @@ class Dashboard extends Component {
         )
     }
 }
-
-export default Dashboard;

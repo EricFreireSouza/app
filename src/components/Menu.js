@@ -54,6 +54,9 @@ const Menu = () => {
             <li className="nav-item">
                 <Link to='/UserInterfaces' activeClassName="active" className="nav-link" target="_blank">User Interfaces</Link>
             </li>
+            <li className="nav-item">
+                <Link to='/Diagram' activeClassName="active" className="nav-link">Diagram</Link>
+            </li>
         </ul>
     );
 };
